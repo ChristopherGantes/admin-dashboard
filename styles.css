@@ -10,9 +10,11 @@
   padding: 0;
 }
 
+*:focus {outline:0px none transparent;}
+
 body {
   /* line height not suitable for headings */
-  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: Roboto, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
@@ -36,6 +38,9 @@ p, h1, h2, h3, h4, h5, h6 {
 :root {
   --nav-blue: dodgerblue;
   --svg-size: 20px;
+  --secondary-bg-color: lightgrey;
+  --primary-bg-color: white;
+  --card-padding: 20px;
 }
 
 body {
@@ -89,10 +94,196 @@ div.nav-links > a > svg {
 
 header {
   grid-column: 2/3;
+
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px 50px;
+
+  font-weight: 600;
+  box-shadow: 0px 2px 10px -3px; 
+}
+
+header svg {
+  height: var(--svg-size);
+}
+
+.profile-pic img {
+  border-radius: 50%;
+}
+
+header .search-container {
+  grid-row: 1/2;
+  grid-column: 1/2;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-container input {
+  flex: auto;
+  
+  max-height: calc(var(--svg-size)*2);
+  background-color:var(--secondary-bg-color);
+  border: none;
+  border-radius: 10px;
+  padding: 0px 10px;
+}
+
+header .account-container {
+  grid-column: 2/3;
+
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 30px;
+}
+
+.account-container button {
+  border: none;
+  background: none;
+}
+
+.account-container .profile-pic
+{
+  width: 50px;
+}
+
+header .welcome-container {
+  grid-row: 2/3;
+  
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.welcome-container .profile-pic {
+  width: 100px;
+}
+
+header .actions-container {
+  grid-column: 2/3;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 100px);
+  gap: 10px;
+  justify-content: end;
+}
+
+.actions-container button {
+  background: var(--nav-blue);
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  color: white;
 }
 
 main {
   grid-row: 2/3;
-  grid-column: 2/3
+  grid-column: 2/3;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+
+  background-color: var(--secondary-bg-color);
+
+  padding: 50px;
+
 }
 
+main .projects-section {
+  flex: 2;
+  flex-basis: 600px;
+  display: grid;
+  grid-template-rows: max-content;
+  gap: 30px;
+}
+
+.projects-section .project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px
+}
+
+.project-grid .project-card {
+  background-color: var(--primary-bg-color);
+  padding: var(--card-padding);
+  border-left: 10px solid orange;
+  border-radius: 10px;
+
+  display: grid;
+  gap: 10px;
+}
+
+.project-card .card-actions {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 10px;
+}
+
+
+
+main .side-div {
+  flex: auto;
+  flex-basis: 300px;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 30px;
+
+}
+
+main svg {
+  height: var(--svg-size);
+}
+
+.side-div .announcements,
+.side-div .trending {
+  flex: auto;
+  flex-basis: 300px;
+
+  display: grid;
+  gap: 30px;
+}
+
+.announcements .announcement-card,
+.trending .trending-card {
+  background-color: var(--primary-bg-color);
+  padding: var(--card-padding);
+  border-radius: 10px;
+
+  display: grid;
+  gap: 10px;
+}
+
+.announcement-card .announcement,
+.trending-card .trend {
+  padding: var(--card-padding);
+}
+
+.announcement p {
+  max-height: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+
+.trending-card .trend {
+  display: grid;
+  grid-template-columns: calc(var(--svg-size)*3) auto;
+  align-items: center;
+  gap: 20px;
+}
+
+.trend img {
+  border-radius: 50%;
+}
