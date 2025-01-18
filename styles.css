@@ -41,13 +41,15 @@ p, h1, h2, h3, h4, h5, h6 {
   --secondary-bg-color: lightgrey;
   --primary-bg-color: white;
   --card-padding: 20px;
+  --shadow-color: rgb(117, 117, 117);
 }
 
 body {
   display: grid;
   grid-template-columns: 1fr 6fr;
   grid-template-rows: 1fr 4fr;
-  height: 100vh
+  height: 100vh;
+  background-color: var(--secondary-bg-color);
 }
 
 nav {
@@ -102,10 +104,12 @@ header {
   justify-content: center;
   align-items: center;
 
+  background-color: var(--primary-bg-color);
   padding: 20px 50px;
+  margin-bottom: 10px;
 
   font-weight: 600;
-  box-shadow: 0px 2px 10px -3px; 
+  box-shadow: 0px 2px 10px -3px var(--shadow-color); 
 }
 
 header svg {
@@ -133,6 +137,8 @@ header .search-container {
   border: none;
   border-radius: 10px;
   padding: 0px 10px;
+  box-shadow: 5px 5px 20px -10px var(--shadow-color);
+
 }
 
 header .account-container {
@@ -181,6 +187,8 @@ header .actions-container {
   border-radius: 10px;
   padding: 10px;
   color: white;
+  box-shadow: 5px 5px 20px -10px var(--shadow-color);
+
 }
 
 main {
@@ -191,10 +199,7 @@ main {
   flex-wrap: wrap;
   gap: 50px;
 
-  background-color: var(--secondary-bg-color);
-
   padding: 50px;
-
 }
 
 main .projects-section {
@@ -216,6 +221,7 @@ main .projects-section {
   padding: var(--card-padding);
   border-left: 10px solid orange;
   border-radius: 10px;
+  box-shadow: 5px 5px 20px -10px var(--shadow-color);
 
   display: grid;
   gap: 10px;
@@ -260,6 +266,8 @@ main svg {
   background-color: var(--primary-bg-color);
   padding: var(--card-padding);
   border-radius: 10px;
+  box-shadow: 5px 5px 20px -10px var(--shadow-color);
+
 
   display: grid;
   gap: 10px;
