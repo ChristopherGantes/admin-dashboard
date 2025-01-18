@@ -30,3 +30,69 @@ p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
   hyphens: auto;
 }
+
+/* PROJECT CSS */
+
+:root {
+  --nav-blue: dodgerblue;
+  --svg-size: 20px;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+  grid-template-rows: 1fr 4fr;
+  height: 100vh
+}
+
+nav {
+  background-color: var(--nav-blue);
+  grid-row: 1/3;
+
+  display: grid;
+  justify-content: left;
+  align-items: start;  
+  grid-auto-rows: max-content;
+  gap: 40px;
+
+  padding: 5px;
+}
+
+nav div.nav-links {
+  display: grid;
+  gap: 10px;
+
+  padding: 5px;
+  margin: 10px 20px;
+}
+
+div.nav-links > a {
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+
+  display: grid;
+  grid-template-columns: calc(var(--svg-size)*2) auto;
+  align-items: center;
+  gap: 10px;
+}
+
+div.logo-dashboard > a > .logo {
+  height: calc(var(--svg-size) * 2);
+}
+
+div.nav-links > a > svg {
+  height: var(--svg-size);
+  fill: white;
+  justify-self: center;
+}
+
+header {
+  grid-column: 2/3;
+}
+
+main {
+  grid-row: 2/3;
+  grid-column: 2/3
+}
+
